@@ -13,10 +13,17 @@ push-wcr:
     #     name: test
     #     code: echo "Let's break things!"
 
+    # - internal/docker-push:
+    #     username: $USERNAME
+    #     password: $PASSWORD
+    #     tag: foo
+    #     #tag: latest, $WERCKER_GIT_COMMIT, $WERCKER_GIT_BRANCH, $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
+    #     repository: garland/test-docker-push
+    #     registry: https://registry.hub.docker.com
+
     - internal/docker-push:
-        username: $USERNAME
-        password: $PASSWORD
-        tag: foo
-        #tag: latest, $WERCKER_GIT_COMMIT, $WERCKER_GIT_BRANCH, $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
-        repository: garland/test-docker-push
-        registry: https://registry.hub.docker.com
+        repository: quay.io/wercker/roll-kube-nodes
+        registry: https://quay.io
+        username: $DOCKER_USER
+        password: $DOCKER_PASSWORD
+        tag: test-$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
