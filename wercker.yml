@@ -1,13 +1,19 @@
-box: debian:8
+box: ubuntu:14.04
 build:
   steps:
     - script:
         name: test
-        code: echo "Hello, app!"
+        code: |
+          echo "Hello, app!"
+          echo $((1 + RANDOM % 10)) > /random_text.txt
+          apt-get update
+          apt-get install -y gcc curl  vim
+
+
 
 
 push-wcr:
-  box: debian:8
+  box: ubuntu:14.04
   steps:
     # - script:
     #     name: test
