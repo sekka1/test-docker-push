@@ -26,4 +26,4 @@ push-wcr:
         registry: https://quay.io
         username: $DOCKER_USER
         password: $DOCKER_PASSWORD
-        tag: test-$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
+        tag: test-bogus-$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
