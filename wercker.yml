@@ -16,6 +16,7 @@ push-wcr:
     - internal/docker-push:
         username: $USERNAME
         password: $PASSWORD
-        tag: latest, $WERCKER_GIT_COMMIT, $WERCKER_GIT_BRANCH, $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
+        tag: foo
+        #tag: latest, $WERCKER_GIT_COMMIT, $WERCKER_GIT_BRANCH, $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
         repository: garland/test-docker-push
         registry: https://registry.hub.docker.com
