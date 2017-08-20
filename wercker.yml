@@ -1,0 +1,21 @@
+box: debian:8
+build:
+  steps:
+    - script:
+        name: test
+        code: echo "Hello, app!"
+
+
+push-wcr:
+  box: debian:8
+  steps:
+    - script:
+        name: test
+        code: echo "Let's break things!"
+
+    - internal/docker-push:
+        username: $USERNAME
+        password: $PASSWORD
+        tag: latest, $WERCKER_GIT_COMMIT, $WERCKER_GIT_BRANCH, $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
+        repository: garland/test-docker-push
+        registry: https://registry.hub.docker.com
