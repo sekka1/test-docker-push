@@ -9,9 +9,9 @@ build:
 push-wcr:
   box: debian:8
   steps:
-    - script:
-        name: test
-        code: echo "Let's break things!"
+    # - script:
+    #     name: test
+    #     code: echo "Let's break things!"
 
     - internal/docker-push:
         username: $USERNAME
